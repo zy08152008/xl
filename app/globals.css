@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(135deg, #000000 0%, #111111 40%, #222222 100%);
+  min-height: 100vh;
+}
+
+.poster-bg {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(17, 17, 17, 0.9) 40%, rgba(34, 34, 34, 0.95) 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+}
+
+.stars-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+}
+
+.star {
+  position: absolute;
+  background-color: gold;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: twinkle 3s infinite ease-in-out;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.text-yellow-400 {
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+}
+
+.text-white\/80 {
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Elegant black and gold effects */
+.dramatic-bg {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.golden-glow {
+  box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);
+}
+
+.red-glow {
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.2);
+}
+
+.green-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+/* Content backgrounds with better readability */
+.content-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(218, 165, 32, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+/* Custom animation for highlight */
+@keyframes pulse-highlight {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(250, 204, 21, 1);
+  }
+}
+
+.animate-pulse-highlight {
+  animation: pulse-highlight 1.5s infinite ease-in-out;
+}
+
+/* 移动端优化 */
+@media (max-width: 640px) {
+  .content-card {
+    margin: 0 8px;
+    padding: 16px !important;
+  }
+
+  .stars-container .star {
+    width: 2px !important;
+    height: 2px !important;
+  }
+
+  /* 确保文本在小屏幕上可读 */
+  .text-responsive {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* 优化按钮在移动端的显示 */
+  .mobile-button {
+    padding: 12px 16px;
+    font-size: 14px;
+    min-height: 44px; /* 符合触摸目标最小尺寸 */
+  }
+
+  /* 优化表格在移动端的显示 */
+  .mobile-table {
+    font-size: 12px;
+  }
+
+  .mobile-table th,
+  .mobile-table td {
+    padding: 8px 4px;
+  }
+}
+
+/* 平板端优化 */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .content-card {
+    padding: 24px !important;
+  }
+}
+
+/* 确保图片在所有设备上都能正确显示 */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 优化导航在移动端的显示 */
+@media (max-width: 640px) {
+  nav {
+    padding: 16px !important;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
